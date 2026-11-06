@@ -195,7 +195,7 @@ Love you so much brat, thank you for being you, for being my safe place and for 
   // ---------------------------------------------------------------
   gift: {
     title: "A little sparkle for the little star ✨",
-    text: "Something to catch the light every time you tuck your hair back, and something to wear every time you point at what you want. Picked with love by your girls. Now go check the wardrobe in your room ",
+    text: "Something to sparkle on your wrist every time you wave hello, and something to wear every time you point at what you want. Picked with love by your girls. Now go check the wardrobe in your room",
   },
 
   finalWish: "Here's to 24: louder laughs, bigger adventures, and us right next to you for all of it.",
