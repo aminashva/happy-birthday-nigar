@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Birthday, Nigar</title>
+  <meta name="theme-color" content="#0b0012">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Unbounded:wght@400;600;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- ============ GATE ============ -->
+  <div id="gate" role="dialog" aria-label="Open your surprise">
+    <div class="gate-inner">
+      <p class="kicker">incoming transmission</p>
+      <h1 class="neon-script gate-sign">for <span data-name></span></h1>
+      <button id="gateBtn" class="btn btn-big">Open your surprise <span aria-hidden="true">✦</span></button>
+      <p class="hint">sound on 🔊</p>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <nav class="dots" aria-label="Sections">
+    <a href="#hero" data-label="Start"></a>
+    <a href="#cake" data-label="Make a wish"></a>
+    <a href="#letters" data-label="Letters"></a>
+    <a href="#gallery" data-label="Memories"></a>
+    <a href="#reasons" data-label="Reasons"></a>
+    <a href="#quiz" data-label="Quiz"></a>
+    <a href="#gift" data-label="Your gift"></a>
+  </nav>
+
+  <button id="musicBtn" class="music-btn" aria-pressed="false" title="Music">
+    <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="sr">Toggle music</span>
+  </button>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero">
+      <div class="balloons" id="balloons" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="kicker" id="heroKicker">happy <span id="ordinal">24th</span> birthday</p>
+        <h1 class="neon-sign" id="neonName"><span data-name></span></h1>
+        <p class="tagline" id="tagline"></p>
+
+        <div class="date-pill" id="datePill">06 · 11 · 2026</div>
+        <p class="date-label">today is officially yours ✦</p>
+
+        <a href="#cake" class="scroll-cue">scroll <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="grid-floor" aria-hidden="true"></div>
+      <p class="pop-hint">psst — pop the balloons</p>
+    </section>
+
+    <!-- ============ CAKE ============ -->
+    <section id="cake" class="section">
+      <header class="sec-head reveal">
+        <span class="num">01</span>
+        <h2>Make a <em>wish</em></h2>
+        <p>Blow into your mic to put out all <b id="candleCount">24</b> candles, or tap them one by one.</p>
+      </header>
+
+      <div class="cake-stage reveal">
+        <div class="cake" id="cakeEl">
+          <div class="candles" id="candles"></div>
+          <div class="tier tier-top"><div class="drip"></div><div class="sprinkles"></div></div>
+          <div class="tier tier-bottom"><div class="drip"></div><div class="sprinkles"></div></div>
+          <div class="plate"></div>
+        </div>
+        <div class="cake-actions">
+          <button class="btn" id="micBtn">🎤 Blow with mic</button>
+          <button class="btn btn-ghost" id="relightBtn" hidden>Relight</button>
+        </div>
+        <p class="wish-msg" id="wishMsg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ============ LETTERS ============ -->
+    <section id="letters" class="section">
+      <header class="sec-head reveal">
+        <span class="num">02</span>
+        <h2>Sealed <em>with love</em></h2>
+        <p>Letters from the people who adore you. Tap an envelope to break the seal.</p>
+      </header>
+      <div class="envelopes" id="envelopes"></div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="section">
+      <header class="sec-head reveal">
+        <span class="num">03</span>
+        <h2>The <em>archives</em></h2>
+        <p>Drag the polaroids around. Tap one to look closer.</p>
+      </header>
+      <div class="board" id="board"></div>
+      <div class="center"><button class="btn btn-ghost" id="shuffleBtn">Shuffle the pile</button></div>
+    </section>
+
+    <!-- ============ REASONS ============ -->
+    <section id="reasons" class="section">
+      <header class="sec-head reveal">
+        <span class="num">04</span>
+        <h2>Reasons we <em>love you</em></h2>
+        <p>A non-exhaustive list. Keep pressing.</p>
+      </header>
+      <div class="reason-stage reveal">
+        <div class="reason-card" id="reasonCard">
+          <span class="reason-num" id="reasonNum">✦</span>
+          <p id="reasonText">Press the button. We dare you.</p>
+        </div>
+        <button class="btn btn-big" id="reasonBtn">Tell me why</button>
+        <p class="reason-progress" id="reasonProgress"></p>
+      </div>
+    </section>
+
+    <!-- ============ QUIZ ============ -->
+    <section id="quiz" class="section">
+      <header class="sec-head reveal">
+        <span class="num">05</span>
+        <h2>How well do you know <em>yourself?</em></h2>
+        <p>10 questions about you. The right answers? Your friends decided them. No pressure. (There is pressure.)</p>
+      </header>
+      <div class="quiz-card reveal" id="quizCard"></div>
+    </section>
+
+    <!-- ============ GIFT ============ -->
+    <section id="gift" class="section">
+      <header class="sec-head reveal">
+        <span class="num">06</span>
+        <h2>One last <em>thing</em></h2>
+        <p>Tap the box. Then scratch.</p>
+      </header>
+      <div class="gift-stage reveal">
+        <button class="giftbox" id="giftBox" aria-label="Open the gift">
+          <span class="lid"><span class="bow"></span></span>
+          <span class="box"></span>
+        </button>
+        <div class="scratch" id="scratch" hidden>
+          <div class="scratch-reveal">
+            <p class="kicker">your gift</p>
+            <h3 id="giftTitle"></h3>
+            <p id="giftText"></p>
+          </div>
+          <canvas id="scratchCanvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="neon-script final-wish" id="finalWish"></p>
+      <button class="btn" id="partyBtn">One more confetti 🎉</button>
+      <p class="made">made with love by <span id="fromName"></span></p>
+    </footer>
+  </main>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-body" id="modalBody" role="dialog" aria-modal="true"></div>
+    <button class="modal-close" data-close aria-label="Close">×</button>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
