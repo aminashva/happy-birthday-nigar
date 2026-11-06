@@ -8,7 +8,7 @@ window.BDAY = {
   birthday: { year: 2002, month: 11, day: 6 }, // 6 November 2002
 
   // Who the site is from (shown in the footer)
-  from: "[Your name] & the squad",
+  from: "Amina & the squad",
 
   // MUSIC — drop an mp3 you own into /music and keep this name (or change it).
   // If the file isn't there, the site plays one of its built-in original tracks:
